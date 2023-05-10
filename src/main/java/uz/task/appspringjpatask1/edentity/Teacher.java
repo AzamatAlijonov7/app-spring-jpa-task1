@@ -5,18 +5,12 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-public class Student {
+public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
-
-    @OneToOne
-    private Address address;
-
-    @ManyToOne
-    private Group group;
 
     @ManyToMany
     private List<Subject> subjects;
@@ -35,22 +29,6 @@ public class Student {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
-
-    public Group getGroup() {
-        return group;
-    }
-
-    public void setGroup(Group group) {
-        this.group = group;
     }
 
     public List<Subject> getSubjects() {
